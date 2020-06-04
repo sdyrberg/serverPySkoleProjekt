@@ -64,50 +64,53 @@ class client(Thread):
             list9 = l[26:29]
 
             sqlFormula = "INSERT INTO " + bordnummer + " (Bestilt, Antal, Størrelse, Ordrenummer) VALUES (%s, %s, %s, %s)"
-
-            if list1:
+  if len(list1[0]) != 0:
                 list1.append(newOrdreNummer)
                 mycursor.execute(sqlFormula, list1)
+                print(list1)
 
-            if list2:
+            if len(list2[0]) != 0:
                 list2.append(newOrdreNummer)
                 mycursor.execute(sqlFormula, list2)
-                print("OK")
-            if list3:
-                list3.append(newOrdreNummer)
-                mycursor.execute(sqlFormula, list3)
+                print(list2)
 
-            if list4:
-                list4.append(newOrdreNummer)
-                mycursor.execute(sqlFormula, list4)
+                if len(list3[0]) != 0:
+                    list3.append(newOrdreNummer)
+                    mycursor.execute(sqlFormula, list3)
+                    print("list3 sendt")
 
-            if list5:
-                list5.append(newOrdreNummer)
-                mycursor.execute(sqlFormula, list5)
+                if len(list4[0]) != 0:
+                    list4.append(newOrdreNummer)
+                    mycursor.execute(sqlFormula, list4)
+                    print("list4 sendt")
 
-            if list6:
-                mycursor.execute(sqlFormula, list6)
-                list6.append(newOrdreNummer)
-            if list7:
-                list7.append(newOrdreNummer)
-                mycursor.execute(sqlFormula, list7)
-            if list8:
-                list8.append(newOrdreNummer)
-                mycursor.execute(sqlFormula, list8)
-            if list9:
-                list9.append(newOrdreNummer)
-                mycursor.execute(sqlFormula, list9)
+                if len(list5[0]) != 0:
+                    list5.append(newOrdreNummer)
+                    mycursor.execute(sqlFormula, list5)
+                    print("list5 sendt")
+
+                if len(list6[0]) != 0:
+                    list6.append(newOrdreNummer)
+                    mycursor.execute(sqlFormula, list6)
+                    print("list6 sendt")
+
+                if len(list7[0]) != 0:
+                    list7.append(newOrdreNummer)
+                    mycursor.execute(sqlFormula, list7)
+                    print("list7 sendt")
+
+                if len(list8[0]) != 0:
+                    list8.append(newOrdreNummer)
+                    mycursor.execute(sqlFormula, list8)
+                    print("list8 sendt")
+
+                if len(list9[0]) != 0:
+                    list9.append(newOrdreNummer)
+                    mycursor.execute(sqlFormula, list9)
+                    print("list9 sendt")
 
             mydb.commit()
-
-            if data == "+":
-                print("Vol UP")
-                VolControl.volUp()
-
-            if data == "-":
-                print("Vol Down")
-                VolControl.volDown()
-
+           
 
 serversocket.listen(5)
 print('server started and listening')
