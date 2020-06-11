@@ -45,26 +45,26 @@ class client(Thread):
             bordnummer = l[1]
             menuVælger = l[0]
 
-            list1 = l[2:5]
+            list1 = l[2:6]
 
-            list2 = l[5:8]
+            list2 = l[6:10]
 
-            list3 = l[8:11]
+            list3 = l[10:14]
 
-            list4 = l[11:14]
+            list4 = l[14:18]
 
-            list5 = l[14:17]
+            list5 = l[18:22]
 
-            list6 = l[17:20]
+            list6 = l[22:26]
 
-            list7 = l[20:23]
+            list7 = l[26:30]
 
-            list8 = l[23:26]
+            list8 = l[30:34]
 
-            list9 = l[26:29]
+            list9 = l[34:38]
 
-            sqlFormula = "INSERT INTO " + bordnummer + " (Bestilt, Antal, Størrelse, Ordrenummer) VALUES (%s, %s, %s, %s)"
-  if len(list1[0]) != 0:
+            sqlFormula = "INSERT INTO " + bordnummer + " (Bestilt, Antal, Størrelse, Ordrenummer, Ekstra) VALUES (%s, %s, %s, %s, %s)"
+            if len(list1[0]) != 0:
                 list1.append(newOrdreNummer)
                 mycursor.execute(sqlFormula, list1)
                 print(list1)
@@ -110,7 +110,6 @@ class client(Thread):
                     print("list9 sendt")
 
             mydb.commit()
-           
 
 serversocket.listen(5)
 print('server started and listening')
